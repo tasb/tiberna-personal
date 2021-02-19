@@ -1,0 +1,22 @@
+{
+    "mode": "All",
+    "policyRule": {
+        "if": {
+            "allOf": [
+                {
+                    "field": "location",
+                    "notEquals": "[resourcegroup().location]"
+                },
+                {
+                    "field": "location",
+                    "notEquals": "global"
+                }
+            ]
+        },
+        "then": {
+            "effect": "deny"
+        }
+    },
+    "parameters": {
+    }
+}
