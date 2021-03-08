@@ -2,15 +2,18 @@
     "final_space": true,
     "console_title": true,
     "console_title_style": "folder",
-    "blocks": [{
+    "blocks": [
+        {
             "type": "prompt",
             "alignment": "left",
             "horizontal_offset": 0,
             "vertical_offset": 0,
-            "segments": [{
+            "segments": [
+                {
                     "type": "root",
-                    "style": "powerline",
-                    "powerline_symbol": "\uE0B0",
+                    "style": "diamond",
+                    "leading_diamond": "\uE0B6",
+                    "trailing_diamond": "",
                     "foreground": "#100e23",
                     "background": "#ffe9aa"
                 },
@@ -21,7 +24,6 @@
                     "invert_powerline": false,
                     "foreground": "#323232",
                     "background": "#8AB7D9",
-                    "leading_diamond": "\uE0B6",
                     "trailing_diamond": "\uE0B0",
                     "properties": {
                         "prefix": "  ",
@@ -29,17 +31,30 @@
                     }
                 },
                 {
+                    "type": "kubectl",
+                    "style": "diamond",
+                    "invert_powerline": false,
+                    "foreground": "#ffffff",
+                    "background": "#7A4594",
+                    "trailing_diamond": "\uE0B0",
+                    "properties": {
+                        "prefix":"<transparent>\uE0B0</> ",
+                        "template": "{{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}"
+                    }
+                },
+                {
                     "type": "git",
-                    "style": "powerline",
-                    "powerline_symbol": "",
+                    "style": "diamond",
                     "invert_powerline": false,
                     "foreground": "#ffffff",
                     "background": "#0078D3",
                     "leading_diamond": "",
-                    "trailing_diamond": "",
+                    "trailing_diamond": "\uE0B0",
                     "properties": {
                         "display_stash_count": true,
-                        "display_upstream_icon": true
+                        "display_upstream_icon": false,
+                        "branch_icon": "",
+                        "prefix":"<transparent>\uE0B0</> "
                     }
                 },
                 {
@@ -51,16 +66,15 @@
                 },
                 {
                     "type": "dotnet",
-                    "style": "powerline",
-                    "powerline_symbol": "",
+                    "style": "diamond",
                     "invert_powerline": false,
                     "foreground": "#ffffff",
                     "background": "#6CA35E",
                     "leading_diamond": "",
-                    "trailing_diamond": "",
+                    "trailing_diamond": "\uE0B0",
                     "properties": {
                         "display_version": true,
-                        "prefix": "  "
+                        "prefix": "<transparent>\uE0B0</>  "
                     }
                 },
                 {
@@ -71,13 +85,13 @@
                     "leading_diamond": "",
                     "trailing_diamond": "\uE0B4",
                     "properties": {
-                        "display_exit_code": false,
-                        "always_enabled": true,
-                        "error_color": "#f1184c",
-                        "color_background": true,
-                        "prefix": "<transparent>\uE0B0</> \uE23A"
+                      "display_exit_code": false,
+                      "always_enabled": true,
+                      "error_color": "#f1184c",
+                      "color_background": true,
+                      "prefix": "<transparent>\uE0B0</> \uE23A"
                     }
-                }
+                  }
             ]
         },
         {
@@ -86,16 +100,19 @@
         {
             "type": "prompt",
             "alignment": "left",
-            "segments": [{
+            "segments": [
+              {
                 "type": "text",
                 "style": "plain",
                 "foreground": "green",
                 "properties": {
-                    "prefix": "",
-                    "text": "$",
-                    "postfix": ""
+                  "prefix": "",
+                  "text": "$",
+                  "postfix": ""
                 }
-            }]
+              }
+            ]
         }
     ]
 }
+
