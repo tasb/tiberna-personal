@@ -30,6 +30,7 @@
                         "style": "folder"
                     }
                 },
+/*
                 {
                     "type": "kubectl",
                     "style": "diamond",
@@ -42,6 +43,7 @@
                         "template": "{{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}"
                     }
                 },
+*/
                 {
                     "type": "git",
                     "style": "diamond",
@@ -76,7 +78,7 @@
                         "display_version": true,
                         "prefix": "<transparent>\uE0B0</>  "
                     }
-                },
+                }/*,
                 {
                     "type": "exit",
                     "style": "diamond",
@@ -91,7 +93,7 @@
                       "color_background": true,
                       "prefix": "<transparent>\uE0B0</> \uE23A"
                     }
-                  }
+                  }*/
             ]
         },
         {
@@ -115,4 +117,3 @@
         }
     ]
 }
-
