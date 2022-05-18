@@ -1,0 +1,93 @@
+{
+    "final_space": true,
+    "console_title": true,
+    "console_title_style": "folder",
+    "blocks": [
+        {
+            "type": "newline"
+        },
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "horizontal_offset": 0,
+            "vertical_offset": 0,
+            "segments": [
+                {
+                    "type": "root",
+                    "style": "diamond",
+                    "leading_diamond": "\uE0B6",
+                    "trailing_diamond": "",
+                    "foreground": "#100e23",
+                    "background": "#ffe9aa"
+                },
+                {
+                    "type": "path",
+                    "style": "diamond",
+                    "powerline_symbol": "",
+                    "invert_powerline": false,
+                    "foreground": "#323232",
+                    "background": "#8AB7D9",
+                    "trailing_diamond": "\uE0B0",
+                    "properties": {
+                        "prefix": "  ",
+                        "style": "folder"
+                    }
+                },
+                {
+                    "type": "git",
+                    "style": "diamond",
+                    "invert_powerline": false,
+                    "foreground": "#ffffff",
+                    "background": "#0078D3",
+                    "leading_diamond": "",
+                    "trailing_diamond": "\uE0B0",
+                    "properties": {
+                        "display_stash_count": true,
+                        "display_upstream_icon": false,
+                        "branch_icon": "",
+                        "prefix":"<transparent>\uE0B0</> "
+                    }
+                },
+                {
+                    "type": "terraform",
+                    "style": "powerline",
+                    "powerline_symbol": "\uE0B0",
+                    "foreground": "#000000",
+                    "background": "#994b2e"
+                },
+                {
+                    "type": "dotnet",
+                    "style": "diamond",
+                    "invert_powerline": false,
+                    "foreground": "#ffffff",
+                    "background": "#6CA35E",
+                    "leading_diamond": "",
+                    "trailing_diamond": "\uE0B0",
+                    "properties": {
+                        "display_version": true,
+                        "prefix": "<transparent>\uE0B0</>  "
+                    }
+                }
+            ]
+        },
+        {
+            "type": "newline"
+        },
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+              {
+                "type": "text",
+                "style": "plain",
+                "foreground": "green",
+                "properties": {
+                  "prefix": "",
+                  "text": "$",
+                  "postfix": ""
+                }
+              }
+            ]
+        }
+    ]
+}
