@@ -7,16 +7,11 @@ sudo apt install unzip
 sudo apt install -y fontconfig
 
 unzip CascadiaCode.zip -d .fonts/CascadiaCove
-
 rm CascadiaCode.zip
-
 fc-cache -fv
 
-Add to bashrc
-
-export POSH_THEME="/mnt/c/Users/tiberna/terminal.json"
-
-eval "$(oh-my-posh --init --shell bash --config $POSH_THEME)"
-
-source <(kubectl completion bash)
-complete -F __start_kubectl k
+echo "" >> ~/.bashrc
+echo "export POSH_THEME=\"/mnt/c/Users/tiberna/terminal.json\"" >> ~/.bashrc
+echo "eval \"$(oh-my-posh --init --shell bash --config $POSH_THEME)\"" >> ~/.bashrc
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+echo "complete -F __start_kubectl k" >> ~/.bashrc

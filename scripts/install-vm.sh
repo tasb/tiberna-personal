@@ -33,7 +33,7 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 sudo groupadd docker
 sudo usermod -aG docker $USER
-#newgrp docker 
+sudo newgrp docker 
 
 # Install kubectl
 
@@ -60,3 +60,16 @@ az extension update --name aks-preview
 # Install git
 sudo apt-get update
 sudo apt-get install -y git
+
+# Install GCM
+curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh
+sh ./install-from-source.sh
+git-credential-manager-core configure
+
+# Update .bashrc
+
+echo "" >> ~/.bashrc
+echo "alias k=kubectl" >> ~/.bashrc
+echo "export GCM_CREDENTIAL_STORE= \"cache\"" >> ~/.bashrc
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+echo "complete -F __start_kubectl k" >> ~/.bashrc
