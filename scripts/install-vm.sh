@@ -1,3 +1,8 @@
+#!/bin/bash
+
+echo "# Added entries by install-vm.sh" >> ~/.bashrc
+echo "" >> ~/.bashrc
+
 sudo apt update
 sudo apt -y upgrade
 
@@ -42,6 +47,10 @@ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https:/
 sudo apt-get update
 sudo apt-get install -y kubectl
 
+echo "alias k=kubectl" >> ~/.bashrc
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+echo "complete -F __start_kubectl k" >> ~/.bashrc
+
 # Install helm
 
 curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
@@ -62,14 +71,46 @@ sudo apt-get update
 sudo apt-get install -y git
 
 # Install GCM
+sudo apt install -y pass
+sudo apt install -y gnupg2
+
+echo "GCM_GPG_PATH=\"/usr/bin/gpg2\"" >> ~/.bashrc
+echo "export GPG_TTY=$(tty)" >> ~/.bashrc
+
+cat >keydata <<EOF
+     %echo Generating a basic OpenPGP key
+     Key-Type: DSA
+     Key-Length: 1024
+     Subkey-Type: ELG-E
+     Subkey-Length: 1024
+     Name-Real: GMC Creds
+     Name-Email: gmc@git.org
+     Expire-Date: 0
+     Passphrase: P@ssw0rd
+     # Do a commit here, so that we can later print "done" :-)
+     %commit
+     %echo done
+EOF
+
+gpg2 --batch --generate-key keydata
+pass init "GMC Creds <gmc@git.org>"
+
+
 curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh
 sh ./install-from-source.sh
 git-credential-manager-core configure
+echo "export GCM_CREDENTIAL_STORE= \"gpg\"" >> ~/.bashrc
 
+# Install Brew
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
+
+# Install kubelogin
+brew install Azure/kubelogin/kubelogin
+echo "export KUBECONFIG=~/.kube/config" >> ~/.bashrc
 # Update .bashrc
 
-echo "" >> ~/.bashrc
-echo "alias k=kubectl" >> ~/.bashrc
-echo "export GCM_CREDENTIAL_STORE= \"cache\"" >> ~/.bashrc
-echo "source <(kubectl completion bash)" >> ~/.bashrc
-echo "complete -F __start_kubectl k" >> ~/.bashrc
+
