@@ -6,6 +6,9 @@ echo "" >> ~/.bashrc
 sudo apt update
 sudo apt -y upgrade
 
+# Install tools
+sudo apt install -y jq unzip dnsutils
+
 # Install dotnet 6
 wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
