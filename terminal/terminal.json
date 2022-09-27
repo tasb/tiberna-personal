@@ -39,7 +39,7 @@
                     "invert_powerline": false,
                     "foreground": "#ffffff",
                     "background": "#0078D3",
-                    "leading_diamond": "\uE0B0",
+                    "leading_diamond": "<transparent>\uE0B0</>",
                     "trailing_diamond": "\uE0B0",
                     "properties": {
                         "display_stash_count": true,
