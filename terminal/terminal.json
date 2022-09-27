@@ -22,8 +22,8 @@
                 },
                 {
                     "type": "path",
-                    "style": "diamond",
-                    "powerline_symbol": "",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
                     "invert_powerline": false,
                     "foreground": "#323232",
                     "background": "#8AB7D9",
@@ -35,10 +35,11 @@
                 },
                 {
                     "type": "git",
-                    "style": "diamond",
+                    "style": "powerline",
                     "invert_powerline": false,
                     "foreground": "#ffffff",
                     "background": "#0078D3",
+                    "powerline_symbol": "\ue0b0",
                     "leading_diamond": "\ue0b4",
                     "trailing_diamond": "\uE0B0",
                     "properties": {
