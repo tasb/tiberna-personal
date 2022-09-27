@@ -1,5 +1,5 @@
 {
-    //"final_space": true,
+    "final_space": true,
     //"console_title": true,
     "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
     "version": 2,
@@ -29,7 +29,7 @@
                     "background": "#8AB7D9",
                     "trailing_diamond": "\uE0B0",
                     "properties": {
-                        "prefix": "  ",
+                        "prefix": " \ueb45 ",
                         "style": "folder"
                     }
                 },
@@ -39,7 +39,7 @@
                     "invert_powerline": false,
                     "foreground": "#ffffff",
                     "background": "#0078D3",
-                    "leading_diamond": "",
+                    "leading_diamond": "\uE0B0",
                     "trailing_diamond": "\uE0B0",
                     "properties": {
                         "display_stash_count": true,
@@ -61,7 +61,7 @@
                     "invert_powerline": false,
                     "foreground": "#ffffff",
                     "background": "#6CA35E",
-                    "leading_diamond": "",
+                    "leading_diamond": "\uE0B0",
                     "trailing_diamond": "\uE0B0",
                     "properties": {
                         "display_version": true,
