@@ -1,14 +1,14 @@
 {
-    "final_space": true,
-    "console_title": true,
-    "console_title_style": "folder",
+    //"final_space": true,
+    //"console_title": true,
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "version": 2,
+    "console_title_template": "{{ .Folder }}",
     "blocks": [
-        {
-            "type": "newline"
-        },
         {
             "type": "prompt",
             "alignment": "left",
+            "newline": true,
             "horizontal_offset": 0,
             "vertical_offset": 0,
             "segments": [
@@ -71,11 +71,9 @@
             ]
         },
         {
-            "type": "newline"
-        },
-        {
             "type": "prompt",
             "alignment": "left",
+            "newline": true,
             "segments": [
               {
                 "type": "text",
