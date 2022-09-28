@@ -21,6 +21,14 @@
                     "background": "#ffe9aa"
                 },
                 {
+                    "type": "session",
+                    "background": "#6272a4",
+                    "foreground": "#f8f8f2",
+                    "leading_diamond": "\ue0b6",
+                    "style": "diamond",
+                    "template": "{{ if .SSHSession }}\uF817 {{ end }}{{ .UserName }}@{{ .HostName }}"
+                },
+                {
                     "type": "path",
                     "style": "powerline",
                     "powerline_symbol": "\ue0b0",
