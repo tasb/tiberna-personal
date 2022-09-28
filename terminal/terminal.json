@@ -27,8 +27,8 @@
                     "invert_powerline": false,
                     "foreground": "#323232",
                     "background": "#8AB7D9",
+                    "template": " \ue5ff {{ .Path }} ",
                     "properties": {
-                        "prefix": " \ueb45 ",
                         "style": "folder"
                     }
                 },
