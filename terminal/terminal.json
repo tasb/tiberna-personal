@@ -56,7 +56,7 @@
                     "trailing_diamond": "\uE0B0",
                     "foreground": "#ffffff",
                     "background": "#0078D3",
-                    "template": " \uF408  {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uF692 {{ .StashCount }}{{ end }} ",
+                    "template": " \uF408  {{ .HEAD }} ",
                     "properties": {
                         "display_stash_count": true,
                         "display_upstream_icon": false,
