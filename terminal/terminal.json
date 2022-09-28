@@ -72,6 +72,25 @@
                     "properties": {
                         "display_version": true
                     }
+                },
+                {
+                    "type": "az",
+                    "style": "powerline",
+                    "powerline_symbol": "\uE0B0",
+                    "foreground": "#000000",
+                    "background": "#9ec3f0",
+                    "template": " \uFD03 {{ .Name }} "
+                },
+                {
+                    "type": "go",
+                    "style": "powerline",
+                    "powerline_symbol": "\uE0B0",
+                    "foreground": "#ffffff",
+                    "background": "#007D9C",
+                    "template": " {{ .Full }} ",
+                    "properties": {
+                        "missing_command_text": "Missing command"
+                    }
                 }
             ]
         },
