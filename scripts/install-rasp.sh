@@ -3,11 +3,12 @@
 echo "# Added entries by install-rasp.sh" >> ~/.bashrc
 echo "" >> ~/.bashrc
 
-sudo apt update
-sudo apt -y upgrade
-
 # Restart services automatically
 sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf
+sudo sed -i "s/#\$nrconf{kernelhints} = -1;/\$nrconf{kernelhints} = -1;/g" /etc/needrestart/needrestart.conf
+
+sudo apt update
+sudo apt -y upgrade
 
 # Disable bell
 
@@ -25,7 +26,7 @@ echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc
 # Nginx
 
 sudo apt install nginx -y
-sudo ufw allow 'OpenSSH'
+echo "y" | sudo ufw allow 'OpenSSH'
 sudo ufw enable
 sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 'Nginx HTTPS'
@@ -81,7 +82,7 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 sudo usermod -aG docker $USER
 
@@ -97,5 +98,4 @@ sudo apt-get install -y helm
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 # Add public key
-
 cat tiberna.pub > .ssh/authorized_keys
