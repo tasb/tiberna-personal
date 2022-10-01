@@ -50,21 +50,18 @@ sudo chmod +x ./dotnet-install.sh
 ./dotnet-install.sh -c Current
 rm -f dotnet-install.sh
 
-cat <<EOF >> .profile
-DOTNET_ROOT=$HOME/.dotnet
-PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
-EOF
-
-
 # Install golang
 
 wget https://go.dev/dl/go1.19.1.linux-arm64.tar.gz
 sudo tar -C /usr/local -xzf go1.19.1.linux-arm64.tar.gz
 rm go1.19.1.linux-arm64.tar.gz
 
-cat <<EOF >> .profile
-PATH=$PATH:/usr/local/go/bin
-GOPATH=$HOME/go
+# Add env vars
+cat <<EOF >> ~/.bashrc
+
+DOTNET_ROOT="$HOME/.dotnet"
+GOPATH="$HOME/go"
+PATH="$PATH:$HOME/.dotnet:$HOME/.dotnet/tools:/usr/local/go/bin"
 EOF
 
 # Install docker
