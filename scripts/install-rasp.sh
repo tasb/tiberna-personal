@@ -26,8 +26,8 @@ echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc
 # Nginx
 
 sudo apt install nginx -y
-echo "y" | sudo ufw allow 'OpenSSH'
-sudo ufw enable
+sudo ufw allow 'OpenSSH'
+echo "y" | sudo ufw enable
 sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 'Nginx HTTPS'
 
