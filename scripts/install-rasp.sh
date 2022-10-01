@@ -96,3 +96,6 @@ sudo apt-get install -y helm
 # Install az cli
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
+# Add public key
+
+cat tiberna.pub > .ssh/authorized_keys
