@@ -13,5 +13,5 @@ rm tiberna.pub
 rm install-rasp.sh
 exec bash
 
-sudo reboot
+sudo shutdown -r now
 ```
