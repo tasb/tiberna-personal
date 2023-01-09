@@ -1,5 +1,6 @@
 #!/bin/bash
 
+arch=$(dpkg --print-architecture)
 echo "# Added entries by install-rasp.sh" >> ~/.bashrc
 echo "" >> ~/.bashrc
 
@@ -36,7 +37,7 @@ sudo ufw allow 'Nginx HTTPS'
 sudo apt install -y jq unzip dnsutils build-essential net-tools
 
 # Install oh-my-posh
-sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-arm64 -O /usr/local/bin/oh-my-posh
+sudo wget "https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-$arch" -O /usr/local/bin/oh-my-posh
 sudo chmod +x /usr/local/bin/oh-my-posh
 
 echo "" >> .bashrc
@@ -52,9 +53,9 @@ rm -f dotnet-install.sh
 
 # Install golang
 
-wget https://go.dev/dl/go1.19.1.linux-arm64.tar.gz
-sudo tar -C /usr/local -xzf go1.19.1.linux-arm64.tar.gz
-rm go1.19.1.linux-arm64.tar.gz
+wget "https://go.dev/dl/go1.19.1.linux-$arch.tar.gz"
+sudo tar -C /usr/local -xzf "go1.19.1.linux-$arch.tar.gz"
+rm "go1.19.1.linux-$arch.tar.gz"
 
 # Add env vars
 cat <<EOF >> ~/.bashrc
@@ -75,7 +76,7 @@ sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "deb [arch=$arch signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo apt-get update
@@ -98,7 +99,7 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 type -p curl >/dev/null || sudo apt install curl -y
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
 && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& echo "deb [arch=$arch signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 && sudo apt update \
 && sudo apt install gh -y
 
