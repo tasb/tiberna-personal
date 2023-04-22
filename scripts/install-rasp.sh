@@ -53,9 +53,11 @@ rm -f dotnet-install.sh
 
 # Install golang
 
-wget "https://go.dev/dl/go1.19.1.linux-$arch.tar.gz"
-sudo tar -C /usr/local -xzf "go1.19.1.linux-$arch.tar.gz"
-rm "go1.19.1.linux-$arch.tar.gz"
+gover=$(curl https://go.dev/VERSION?m=text)
+gofile="$gover.linux-$arch.tar.gz"
+wget "https://dl.google.com/go/$gofile"
+sudo tar -C /usr/local -xzf $gofile
+rm $gofile
 
 # Add env vars
 cat <<EOF >> ~/.bashrc
