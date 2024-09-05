@@ -34,7 +34,7 @@ sudo ufw allow 'Nginx HTTPS'
 
 
 # Install tools
-sudo apt install -y jq unzip dnsutils build-essential net-tools
+sudo apt install -y jq unzip dnsutils build-essential net-tools xdg-utils
 
 # Install oh-my-posh
 sudo wget "https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-$arch" -O /usr/local/bin/oh-my-posh
@@ -110,3 +110,11 @@ git config --global user.email "tiago.bernardo@gmail.com"
 
 # Add public key
 cat tiberna.pub > .ssh/authorized_keys
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/tiberna/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+brew install gh
+
