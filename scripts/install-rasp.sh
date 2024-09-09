@@ -57,7 +57,7 @@ gover=$(curl https://go.dev/VERSION?m=text)
 gofile="$gover.linux-$arch.tar.gz"
 wget "https://dl.google.com/go/$gofile"
 sudo tar -C /usr/local -xzf $gofile
-rm $gofile
+rm $gofileeval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/tasb/tiberna-personal/main/terminal/terminal.json)"
 
 # Add env vars
 cat <<EOF >> ~/.bashrc
@@ -97,14 +97,6 @@ sudo apt-get install -y helm
 # Install az cli
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-# Install gh cli
-type -p curl >/dev/null || sudo apt install curl -y
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$arch signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-&& sudo apt update \
-&& sudo apt install gh -y
-
 git config --global user.name "tiberna"
 git config --global user.email "tiago.bernardo@gmail.com"
 
@@ -118,3 +110,14 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 brew install gh
 
+
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+sudo apt update
+sudo apt install terraform -y
+
+brew install terragrunt
+
+brew install kubectl
+kubectl version --client
