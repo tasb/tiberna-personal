@@ -87,22 +87,12 @@
                 "startingDirectory": "/home/tiberna"
             },
             {
-                "commandline": "ssh ubuntu@rasp001",
-                "guid": "{891a0b95-43a8-5379-a9c6-b68e2806628f}",
-                "name": "ssh rasp001",
-                "tabTitle": "rasp001"
-            },
-            {
-                "commandline": "ssh ubuntu@rasp002",
-                "guid": "{8ddc11ae-25cb-5934-a661-67d64feb02a2}",
-                "name": "ssh rasp002",
-                "tabTitle": "rasp002"
-            },
-            {
-                "commandline": "ssh ubuntu@rasp003",
-                "guid": "{02d1dbd3-ac98-52fa-8350-f8e5433b0c0f}",
-                "name": "ssh rasp003",
-                "tabTitle": "rasp003"
+                "colorScheme": "Ubuntu-ColorScheme",
+                "commandline": "C:\\Windows\\system32\\wsl.exe -d Ubuntu",
+                "guid": "{185f718e-97b5-4950-bb1d-407a0aa90ce5}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
+                "name": "Ubuntu"
             }
         ]
     },
