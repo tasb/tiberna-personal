@@ -8,6 +8,7 @@ echo "" >> ~/.bashrc
 sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf
 sudo sed -i "s/#\$nrconf{kernelhints} = -1;/\$nrconf{kernelhints} = -1;/g" /etc/needrestart/needrestart.conf
 
+sudo add-apt-repository ppa:wslutilities/wslu
 sudo apt update
 sudo apt -y upgrade
 
@@ -15,6 +16,7 @@ sudo apt -y upgrade
 
 echo "" >> .bashrc
 echo "bind 'set bell-style none'" >> .bashrc
+echo "" >> .bashrc
 
 cat <<EOF > .vimrc
 " Disable annoying beeping
@@ -23,18 +25,22 @@ set vb t_vb=
 EOF
 
 echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc
+echo "" >> .bashrc
 
 # Nginx
 
-sudo apt install nginx -y
-sudo ufw allow 'OpenSSH'
-echo "y" | sudo ufw enable
-sudo ufw allow 'Nginx HTTP'
-sudo ufw allow 'Nginx HTTPS'
+# sudo apt install nginx -y
+# sudo ufw allow 'OpenSSH'
+# echo "y" | sudo ufw enable
+# sudo ufw allow 'Nginx HTTP'
+# sudo ufw allow 'Nginx HTTPS'
 
 
 # Install tools
-sudo apt install -y jq unzip dnsutils build-essential net-tools xdg-utils
+sudo apt install -y jq unzip dnsutils build-essential net-tools xdg-utils wslu
+
+echo "export BROWSER=wslview" >> ~/.bashrc
+echo "" >> .bashrc
 
 # Install oh-my-posh
 sudo wget "https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-$arch" -O /usr/local/bin/oh-my-posh
