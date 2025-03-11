@@ -56,8 +56,10 @@
                     "trailing_diamond": "\uE0B0",
                     "foreground": "#ffffff",
                     "background": "#0078D3",
-                    "template": " \uF408  {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} {{ .Staging.String }}{{ end }}",
+                    "template": " \uF408  {{ .UpstreamIcon }}{{ .HEAD }}",
                     "properties": {
+                        "fetch_status": true,
+                        "fetch_upstream_icon": true,
                         "display_stash_count": true,
                         "display_upstream_icon": false,
                         "branch_icon": "",
